@@ -84,13 +84,10 @@ library(tidytext)
 library(magrittr)
 ```
 
-```{r include=FALSE}
-setwd('~/workspace/McDaniel/final')
-```
 
 ```{r}
 # Importing dataset
-
+setwd('~/workspace/wildfire_v2')
 wf = read_csv('federal_costs.csv')
 ```
 
