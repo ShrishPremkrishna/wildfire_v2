@@ -12,11 +12,6 @@ github-repo: rstudio/bookdown-demo
 description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
 ---
 
-# Prerequisites
-
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
-
-The **bookdown** package can be installed from CRAN or Github:
 
 ```{r eval=FALSE}
 install.packages("bookdown")
@@ -34,3 +29,133 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
+
+
+## Wildfires:
+
+### What are Wildfires?
+
+Wildfires are uncontrolled fires that burn off vegetation. They are a natural part of the ecosystem, but in recent years, have become extremely destructive, causing damage to habitats, homes, and humans.
+
+### Why are Wildfires Important?
+
+Wildfires currently have a bad reputation, but it is not their fault. In a ideal natural environment, wildfires are key for nutrient cycling, forest regeneration, and ecological balance.
+
+### Wildfires in Recent Years:
+
+In recent years, wildfires have changed from an essential part of our ecosystems to unnatural and destructive disasters. Increasingly, the causes of wildfires are from humans, whether its from a gender reveal party gone wrong, or a cigarette thrown away to early. Due to exacerbated conditions from climate change, these mundane causes lead to humongous fires that burn down entire forests and cities. The rate of wildfires are also increasing, and wildfire season is becoming a common term. I am writing this here
+
+### How do Wildfires Relate to Climate Change?
+
+Climate change is increasing the frequency and severity of wildfires. Rising temperatures and prolonged droughts create drier conditions, making it easier for wildfires to start and spread. This contributes to larger, more intense fires that pose greater risks to communities and ecosystems. Climate change exacerbates wildfires, making them more frequent and harder to control.
+
+## This Project:
+
+This project aims to explore the different factors that influence wildfires. 
+After a Literature Review and exploring the different data available to us, we decided to investigate these four factors:
+
+Temperature
+XXX data set: A little about temp and the data set
+
+Rainfall
+XXX data set: A little about rainfall and the data set
+
+Lightning
+XXX data set: A little about lightning and the data set
+
+Tourism/Visitation
+XXX data set: A little about tourism and the data set
+
+To investigate these factors, their data sets will be combined with our wildfire data set. 
+XXX
+These combined data sets will be explored and analyzed to produce data-driven conclusions
+
+This wildfire data set has data from 1983 to 2020. For every year, it has the amount of wildfires that occurred in America that year, the amount of acres that were burnt from the fires that year, and the amount of money the Forest Service and the Department of Interior paid to combat and mitigate fires. 
+
+## Preliminary Data Analysis
+
+```{r}
+# Libraries needed
+
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(tidytext)
+library(magrittr)
+```
+
+```{r include=FALSE}
+setwd('~/workspace/McDaniel/final')
+```
+
+```{r}
+# Importing dataset
+
+wf = read_csv('federal_costs.csv')
+```
+
+```{r}
+# Taking a look
+
+head(wf)
+```
+
+```{r}
+#Setting up easier column names
+
+colnames(wf)[4] ="ForestService"
+colnames(wf)[5] ="DOI"
+colnames(wf)[6] ="Total"
+```
+
+```{r}
+# Looking better, but data is not numerical
+head(wf)
+```
+
+```{r}
+# Converting data with commas and dollar signs to numerical values
+
+wf <- wf %>%
+  mutate(ForestService = as.numeric(gsub("[^0-9.]", "", ForestService)))
+wf <- wf %>%
+  mutate(DOI = as.numeric(gsub("[^0-9.]", "", DOI)))
+wf <- wf %>%
+  mutate(Total = as.numeric(gsub("[^0-9.]", "", Total)))
+```
+
+```{r}
+# Nice!
+  
+head(wf)  
+```
+
+```{r}
+# Plotting the amount of money spent on Wildfires in America from 1983 to 2020
+
+plot(x = wf$Year, y = wf$Total) 
+```
+The amount of money spent on Wildfires every year has dramatically increased. 
+
+
+
+```{r}
+# Plotting the amount of fires that occurred every year in America from 1983 to 2020
+
+plot(x = wf$Year, y = wf$Fires) 
+```
+The amount of fires occuring every year has slightly decreased recently. 
+
+
+```{r}
+# Plotting the amount of acres burned from Wildfires every year in America from 1983 to 2020
+
+plot(x = wf$Year, y = wf$Acres)
+```
+The amount of acres burned every year due to Wildfires has increased dramatically.
+
+
+From an analysis of just our wildfire dataset, we conclude that:
+
+Wildfire costs are at an all time high, and although the number of wildfires occurring every year might be slightly declining, the number of acres that these fires burn every year is increasing. 
+
