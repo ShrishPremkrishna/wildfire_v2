@@ -1,3 +1,39 @@
+--- 
+title: "A Minimal Book Example"
+author: "Yihui Xie"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+---
+
+
+## Wildfires:
+### What are Wildfires?
+### Why are Wildfires Important?
+### Wildfires in Recent Years:
+### How do Wildfires Relate to Climate Change?
+## This Project:
+## Preliminary Data Analysis
+
+<!--chapter:end:index.Rmd-->
+
+
+# Temperature
+
+Placeholder
+
+
+## Coding
+## Graphing
+
+<!--chapter:end:01-temp.Rmd-->
+
 ---
 title: "Precipitation"
 author: "Laine Spindler"
@@ -63,4 +99,7 @@ plot(acres)
 plot(fires)
 ```
 
-We expected years with low rainfall to have a higher number of fires or a higher amount of land burned, but the plots show no clear relationship between precipitation and wildfires. The area burned and number of fires seems to be independent from the amount of precipitation. However, as a mentioned earlier particularly dry years did have a larger area burned by fires. This connection, combined with the lack of connection shown in the two scatter plots, means there is a weak connection between precipitation and the severity of wildfires.
+We expected years with low rainfall to have a higher number of fires or a higher amount of land burned. However, the plots show no clear relationship between precipitation and wildfires. The area burned and number of fires seems to be independent from the amount of precipitation.
+
+<!--chapter:end:02-precipitation.Rmd-->
+
