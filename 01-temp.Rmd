@@ -17,9 +17,12 @@ library(stringr)
 Here I simply set an option to have R print graph tick mark values in numeric notation instead of scientific/exponential. Then it's just librarying packages used late in the code.
 
 ```{r reading in datasets and cleaning them}
-wildfire <- read.csv("/Users/28628890/intro_to_social_data_sci/wildfire/archive/Federal Firefighting Costs (Suppression Only).csv")
 
-temp <- read.csv("/Users/28628890/intro_to_social_data_sci/wildfire/climdiv_national_year.csv")
+setwd('~/workspace/wildfire_v2')
+
+wildfire <- read.csv("federal_costs.csv")
+
+temp <- read.csv("climdiv_national_year.csv")
 
 lessTemp <- temp %>%
   filter(year >= 1985)

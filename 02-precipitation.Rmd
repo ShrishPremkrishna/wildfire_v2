@@ -11,9 +11,20 @@ head(rf_data)
 ```
 Here, I used ggplot to create a visualization of this data. The plot below shows the annual precipitation from 1983 to 2020. The white line shows the average precipitation from this period. The years with high precipitation (more than 2 inches above average) are shown with blue points and the years with low precipitation (more than 2 inches below average) are shown with pink points.
 
+```{r}
+# Libraries needed
+
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(tidytext)
+library(magrittr)
+```
+
+
 ```{r precipitation, eval=FALSE,warning=FALSE}
 ## reading csv
-rf_data<-read_csv("rainfall_data.csv")
+rf_data <- read_csv("rainfall_data.csv")
 
 ## get some more data
 avg_rf<-mean(rf_data$`Precipitation (Inches)`)
@@ -33,7 +44,10 @@ ggplot(rf_data,aes(Year,`Precipitation (Inches)`))+
   theme_dark()+
   lims(x=c(1983,2020))
 ```
+
+
 ```{r precip plot,echo=FALSE,warning=FALSE}
+setwd('~/workspace/wildfire_v2/wildfire_v2')
 load("precip_environment.RData")
 library(ggplot2)
 plot(rf_plot)
