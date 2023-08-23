@@ -1,0 +1,8 @@
+---
+title: "Conclusion"
+author: "Laine Spindler"
+date: "`r Sys.Date()`"
+output: html_document
+---
+Overall, there appears to be the strongest corrrelation between annual temperature and the severity of fires. Years with particularly low precipitation have a larger number of acres burned, but there is not an overall trend relating precipitation and wildfire severity. Lightning increases the number of fires in some places, but there is not a correlation across the entire country. There is not a strong relationship between the number of annual national park visitations and wildfires.
+To further investigate these potential causes of wildfires, the following steps could be taken. For precipitation, smaller areas could be researched. It is possible that our current data is skewed by rainfall in an area other than the area in which the wildfires are occuring. For visitation, spatial data could be used to investigate specific locations. For lightning, you could consider other factors that contribute to its relationship with wildfires, such as vegetation types.
